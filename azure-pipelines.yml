@@ -10,7 +10,8 @@ steps:
     sudo apt install google-chrome-stable
     sudo apt-get install firefox
     java -cp "./lib/*:./bin"
-    java class src.pkg1.NewTest
+    java org.testng.TestNG -groups windows,linux -testclass pkg1.NewTest
+
   #java org.testng.TestNG testng.xml
 
 - task: PublishPipelineArtifact@1
