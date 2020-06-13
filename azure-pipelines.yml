@@ -10,10 +10,15 @@ steps:
     sudo apt install google-chrome-stable
     sudo apt-get install firefox
     java -cp "./lib/*:./bin"
-    java org.testng.TestNG -groups windows,linux -testclass pkg1.NewTest
-
-  #java org.testng.TestNG testng.xml
-
+    #java org.testng.TestNG testng.xml
+    
+- task: Ant@1
+  inputs:
+    buildFile: 'testng.xml'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.8'
+    jdkArchitectureOption: 'x64'
+   
 - task: PublishPipelineArtifact@1
   inputs:
     targetPath: $(System.DefaultWorkingDirectory)/results/
