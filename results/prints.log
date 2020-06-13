@@ -1,0 +1,6 @@
+15:13:07.881 [main] INFO  pkg1.NewTest - This is first line
+15:13:07.883 [main] INFO  pkg1.NewTest - This is second line
+15:13:07.883 [main] INFO  pkg1.NewTest - This is third line
+15:30:06.455 [main] INFO  pkg1.NewTest - This is first line
+15:30:06.457 [main] INFO  pkg1.NewTest - This is second line
+15:30:06.457 [main] INFO  pkg1.NewTest - This is third line
