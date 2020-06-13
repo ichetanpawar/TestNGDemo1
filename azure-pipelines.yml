@@ -2,15 +2,16 @@ trigger:
 - master
 
 pool:
-  name: linux-agents
-  #vmImage: 'ubuntu-latest'
+  #name: linux-agents
+  vmImage: 'ubuntu-latest'
 
 steps:
 - script: |
     sudo apt install google-chrome-stable
     sudo apt-get install firefox
     java -cp "./lib/*:./bin"
-    java org.testng.TestNG testng.xml
+    java class src.pkg1.NewTest
+  #java org.testng.TestNG testng.xml
 
 - task: PublishPipelineArtifact@1
   inputs:
