@@ -3,13 +3,17 @@ trigger:
 
 pool:
   #name: linux-agents
+  #sudo apt install google-chrome-stable
   vmImage: 'ubuntu-latest'
 
 steps:
 - script: |
-    sudo apt install google-chrome-stable
-    sudo apt-get install firefox
     sudo apt-get install testng
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    sudo dpkg -i --force-depends google-chrome-stable_current_amd64.deb
+    LATEST=$(wget -q -O - http://chromedriver.storage.googleapis.com/LATEST_RELEASE)
+    wget http://chromedriver.storage.googleapis.com/$LATEST/chromedriver_linux64.zip
+    unzip chromedriver_linux64.zip && sudo ln -s $PWD/chromedriver /usr/local/bin/chromedriver
     java -cp "./lib/*:./bin" org.testng.TestNG testng.xml
   
 - task: PublishPipelineArtifact@1
