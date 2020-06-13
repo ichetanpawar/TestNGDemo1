@@ -12,7 +12,7 @@ steps:
     sudo apt-get install testng
     wget https://chromedriver.storage.googleapis.com/2.41/chromedriver_linux64.zip
     unzip chromedriver_linux64.zip
-    sudo chmod +x chromedriver
+    sudo chmod +x /usr/bin/chromedriver
     java -cp "./lib/*:./bin" org.testng.TestNG testng.xml
   
 - task: PublishPipelineArtifact@1
