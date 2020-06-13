@@ -19,15 +19,8 @@ steps:
         && sudo chmod +x /usr/local/bin/chromedriver \
         && chromedriver --version
   
-  
-- task: CopyFiles@2
+- task: DownloadBuildArtifacts@0
   inputs:
-    SourceFolder: '$(Build.ArtifactStagingDirectory)'
-    Contents: '**'
-    TargetFolder: '$(System.DefaultWorkingDirectory)/results/'
-
-- task: PublishPipelineArtifact@1
-  inputs:
-    targetPath: '$(System.DefaultWorkingDirectory)/results/'
-    artifactName: Results
-  condition: always()
+    buildType: 'current'
+    downloadType: 'specific'
+    downloadPath: '$(System.ArtifactsDirectory)'
