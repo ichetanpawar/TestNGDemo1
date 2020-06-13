@@ -21,6 +21,7 @@ steps:
   
 - task: PublishPipelineArtifact@1
   inputs:
-      targetPath: '$(Pipeline.Workspace)'
-      artifact: 'Results'
-      publishLocation: 'pipeline'
+    #patterns: '**/*.log'
+    targetPath: '**/*.log'
+    artifact: 'Results'
+    publishLocation: 'pipeline'
