@@ -18,7 +18,8 @@ steps:
         && sudo mv chromedriver /usr/local/bin/chromedriver \
         && sudo chmod +x /usr/local/bin/chromedriver \
         && chromedriver --version
-    java -cp "./lib/*:./bin" org.testng.TestNG testng.xml 
+    java -cp "./lib/*:./bin" 
+    java org.testng.TestNG testng.xml 
 
 - task: PublishPipelineArtifact@1
   inputs:
