@@ -2,7 +2,8 @@ trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-latest'
+  name: linux-agents
+  #vmImage: 'ubuntu-latest'
 
 steps:
 - script: |
