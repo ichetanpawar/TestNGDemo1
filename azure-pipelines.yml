@@ -19,7 +19,7 @@ steps:
         && sudo chmod +x /usr/local/bin/chromedriver \
         && chromedriver --version
     java -cp "./lib/*:./bin" 
-    java org.testng.TestNG testng.xml 
+    java testng.xml 
 
 - task: PublishPipelineArtifact@1
   inputs:
