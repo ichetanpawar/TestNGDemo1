@@ -1,6 +1,4 @@
-15:13:07.881 [main] INFO  pkg1.NewTest - This is first line
-15:13:07.883 [main] INFO  pkg1.NewTest - This is second line
-15:13:07.883 [main] INFO  pkg1.NewTest - This is third line
-15:30:06.455 [main] INFO  pkg1.NewTest - This is first line
-15:30:06.457 [main] INFO  pkg1.NewTest - This is second line
-15:30:06.457 [main] INFO  pkg1.NewTest - This is third line
+22:52:15.747 [main] INFO  pkg1.NewTest - Opening google.co.in
+22:52:23.679 [main] INFO  pkg1.NewTest - Window maximized
+22:52:29.721 [main] INFO  pkg1.NewTest - Window title:Google
+22:52:29.729 [main] INFO  pkg1.NewTest - Current URL:https://www.google.co.in/
