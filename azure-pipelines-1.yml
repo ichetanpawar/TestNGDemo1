@@ -14,6 +14,6 @@ steps:
     
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Pipeline.Workspace)/results'
+    targetPath: '$(Build.SourcesDirectory)/results'
     artifact: 'Results'
     publishLocation: 'pipeline'
