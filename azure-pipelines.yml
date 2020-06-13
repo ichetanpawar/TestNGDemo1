@@ -13,8 +13,8 @@ steps:
     sudo apt-get install unzip
     wget -N http://chromedriver.storage.googleapis.com/2.10/chromedriver_linux64.zip -P ~/Downloads
     unzip /home/vsts/Downloads/chromedriver_linux64.zip
-    chmod +x /home/vsts/Downloads/chromedriver
-    sudo mv -f /home/vsts/Downloads/chromedriver ./bin/
+    chmod +x /home/vsts/Downloads/chromedriver_linux64/chromedriver
+    sudo mv -f /home/vsts/Downloads/chromedriver_linux64/chromedriver ./bin/
     java -cp "./lib/*:./bin" org.testng.TestNG testng.xml
   
 - task: PublishPipelineArtifact@1
