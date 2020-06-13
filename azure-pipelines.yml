@@ -21,6 +21,6 @@ steps:
   
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: $(System.DefaultWorkingDirectory)/results/
+    targetPath: /results/
     artifactName: Results
   condition: always()
