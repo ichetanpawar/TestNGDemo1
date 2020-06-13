@@ -1,0 +1,20 @@
+trigger:
+- master
+
+pool:
+  #name: linux-agents
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: |
+    sudo apt install google-chrome-stable
+    sudo apt-get install firefox
+    sudo apt-get install testng
+    java -cp "./lib/*:./bin" org.testng.TestNG testng.xml
+  
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: $(System.DefaultWorkingDirectory)/results/
+    artifactName: Results
+
+
