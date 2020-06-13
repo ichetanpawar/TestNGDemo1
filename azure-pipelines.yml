@@ -19,9 +19,8 @@ steps:
         && sudo chmod +x /usr/local/bin/chromedriver \
         && chromedriver --version
   
-- task: PublishPipelineArtifact@1
+- task: PublishBuildArtifacts@1
   inputs:
-    targetPath: $(System.DefaultWorkingDirectory)/
-    artifactName: Results
-
-
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/**.log'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
