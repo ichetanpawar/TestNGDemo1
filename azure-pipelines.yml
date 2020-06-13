@@ -21,6 +21,6 @@ steps:
   
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: $(Build.ArtifactStagingDirectory)/results/
+    targetPath: $(Pipeline.Workspace)/s/results/
     artifactName: Results
   condition: always()
