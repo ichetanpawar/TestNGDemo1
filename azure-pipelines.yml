@@ -9,8 +9,7 @@ steps:
 - script: |
     sudo apt install google-chrome-stable
     sudo apt-get install firefox
-    java -cp "./lib/*:./bin"
-    java -cp $(System.DefaultWorkingDirectory) org.testng.TestNG testng.xml
+    java -cp "./lib/*:./bin" -DEnvironment=$(Environment) -Dtags=$(tags) org.testng.TestNG testng.xml
   
 - task: PublishPipelineArtifact@1
   inputs:
