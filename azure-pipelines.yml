@@ -18,7 +18,8 @@ steps:
         && sudo mv chromedriver /usr/local/bin/chromedriver \
         && sudo chmod +x /usr/local/bin/chromedriver \
         && chromedriver --version
-  
+    java -cp "./lib/*:./bin" org.testng.TestNG testng.xml 
+
 - task: PublishPipelineArtifact@1
   inputs:
     targetPath: '$(Pipeline.Workspace)'
@@ -39,19 +40,7 @@ steps:
 
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Pipeline.Workspace)'
+    targetPath: '$(Agent.TempDirectory)'
     artifact: 'Results4'
-    publishLocation: 'pipeline'
-
-- task: PublishPipelineArtifact@1
-  inputs:
-    targetPath: '$(Agent.BuildDirectory)'
-    artifact: 'Results5'
-    publishLocation: 'pipeline'
-
-- task: PublishPipelineArtifact@1
-  inputs:
-    targetPath: '$(Build.Repository.LocalPath)'
-    artifact: 'Results6'
     publishLocation: 'pipeline'
 
