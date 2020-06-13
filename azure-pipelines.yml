@@ -10,7 +10,12 @@ steps:
     sudo apt install google-chrome-stable
     sudo apt-get install firefox
     sudo apt-get install testng
-    java -cp "./lib/*:./bin" -Dwebdriver.chrome.driver=$(System.DefaultWorkingDirectory)/lib/chromedriver org.testng.TestNG testng.xml
+    sudo apt-get install unzip
+    wget -N http://chromedriver.storage.googleapis.com/2.10/chromedriver_linux64.zip -P ~/Downloads
+    unzip chromedriver_linux64.zip
+    chmod +x chromedriver
+    sudo mv -f chromedriver ./bin/chromedriver
+    java -cp "./lib/*:./bin" org.testng.TestNG testng.xml
   
 - task: PublishPipelineArtifact@1
   inputs:
