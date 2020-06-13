@@ -10,7 +10,7 @@ steps:
     sudo apt install google-chrome-stable
     sudo apt-get install firefox
     java -cp "./lib/*:./bin"
-    java testng.xml
+    java -cp $(System.DefaultWorkingDirectory) org.testng.TestNG testng.xml
   
 - task: PublishPipelineArtifact@1
   inputs:
