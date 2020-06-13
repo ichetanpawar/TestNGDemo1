@@ -14,7 +14,7 @@ public class NewTest {
 	@Test
 	public void f() {
 			log.info("Opening google.co.in");
-			System.setProperty("webdriver.chrome.driver", ".\\lib\\chromedriver");
+			System.setProperty("webdriver.chrome.driver", ".\\bin\\chromedriver");
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
 			log.info("Window maximized");
