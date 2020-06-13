@@ -19,14 +19,7 @@ steps:
         && sudo chmod +x /usr/local/bin/chromedriver \
         && chromedriver --version
   
-- task: DownloadBuildArtifacts@0
+- task: PublishPipelineArtifact@1
   inputs:
-    buildType: 'current'
-    downloadType: 'specific'
-    downloadPath: '$(System.ArtifactsDirectory)'
-
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+    targetPath: '$(Pipeline.Workspace)' 
+    artifactName: 'drop'
