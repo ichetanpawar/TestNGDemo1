@@ -17,7 +17,6 @@ public class NewTest {
 
 			driver = new ChromeDriver();
 			log.info("Opening google.co.in");
-			log.info("Window maximized");
 			driver.get("https://www.google.co.in/");
 			log.info("Window title:"+driver.getTitle());
 			log.info("Current URL:"+driver.getCurrentUrl());
