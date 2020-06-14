@@ -12,9 +12,13 @@ public class NewTest {
 
 	@Test
 	public void f() {
-			//System.setProperty("webdriver.chrome.driver", ".//lib//chromedriver");
-			driver.Firefox()
-			//driver = new ChromeDriver();
+			System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+		ChromeOptions chromeOptions = new ChromeOptions();
+			chromeOptions.addArguments("--ChromelessOptions");
+            chromeOptions.addArguments("--headless");
+            chromeOptions.addArguments("--no-sandbox");
+			chromeOptions.addArguments("--disable-dev-shm-usage");
+			driver = new ChromeDriver(chromeOptions);
 			log.info("Opening google.co.in");
 		log.info("Opening google.co.in3");
 		log.info("Opening google.co.in4"+driver.get("https://www.google.com/"));
