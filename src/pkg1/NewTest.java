@@ -13,13 +13,10 @@ public class NewTest {
 
 	@Test
 	public void f() {
-			System.setProperty("webdriver.chrome.driver", "/lib/chromedriver");
+			System.setProperty("webdriver.chrome.driver", ".//lib//chromedriver");
 
 			driver = new ChromeDriver();
 			log.info("Opening google.co.in");
-			driver.get("https://www.google.co.in/");
-			log.info("Window title:"+driver.getTitle());
-			log.info("Current URL:"+driver.getCurrentUrl());
-			log.info(driver.getPageSource());
+		
 	}
 }
