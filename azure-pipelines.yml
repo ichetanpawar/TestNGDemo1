@@ -7,51 +7,20 @@ pool:
 
 steps:
 - script: |
+    sudo apt-get install default-jdk
     sudo apt install google-chrome-stable
     sudo apt-get install testng
-    CHROME_VERSION=$(google-chrome --version | cut -f 3 -d ' ' | cut -d '.' -f 1) \
-        && CHROMEDRIVER_RELEASE=$(curl --location --fail --retry 3 http://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_VERSION}) \
-        && curl --silent --show-error --location --fail --retry 3 --output /tmp/chromedriver_linux64.zip "http://chromedriver.storage.googleapis.com/$CHROMEDRIVER_RELEASE/chromedriver_linux64.zip" \
-        && cd /tmp \
-        && unzip chromedriver_linux64.zip \
-        && rm -rf chromedriver_linux64.zip \
-        && sudo mv chromedriver /usr/local/bin/chromedriver \
-        && sudo chmod +x /usr/local/bin/chromedriver \
-        && chromedriver --version
+    sudo apt-get -y install xvfb
+    wget https://chromedriver.storage.googleapis.com/2.41/chromedriver_linux64.zip
+    unzip chromedriver_linux64.zip
+    sudo mv chromedriver /usr/bin/chromedriver
+    sudo chown root:root /usr/bin/chromedriver
+    sudo chmod +x /usr/bin/chromedriver
+    xvfb-run java -cp "./lib/*:./bin" org.testng.TestNG testng.xml
   
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Pipeline.Workspace)'
+    targetPath: '$(Build.SourcesDirectory)/results'
     artifact: 'Results'
     publishLocation: 'pipeline'
-
-- task: PublishPipelineArtifact@1
-  inputs:
-    targetPath: '$(Build.SourcesDirectory)'
-    artifact: 'Results2'
-    publishLocation: 'pipeline'
-
-- task: PublishPipelineArtifact@1
-  inputs:
-    targetPath: '$(System.DefaultWorkingDirectory)'
-    artifact: 'Results3'
-    publishLocation: 'pipeline'
-
-- task: PublishPipelineArtifact@1
-  inputs:
-    targetPath: '$(Pipeline.Workspace)'
-    artifact: 'Results4'
-    publishLocation: 'pipeline'
-
-- task: PublishPipelineArtifact@1
-  inputs:
-    targetPath: '$(Agent.BuildDirectory)'
-    artifact: 'Results5'
-    publishLocation: 'pipeline'
-
-- task: PublishPipelineArtifact@1
-  inputs:
-    targetPath: '$(Build.Repository.LocalPath)'
-    artifact: 'Results6'
-    publishLocation: 'pipeline'
-
+  
