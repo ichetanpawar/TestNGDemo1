@@ -11,7 +11,13 @@ steps:
     sudo apt install google-chrome-stable
     sudo apt-get install testng
     sudo apt-get -y install xvfb
-    xvfb-run java -cp "./lib/*:./bin" org.testng.TestNG testng.xml
+    wget https://chromedriver.storage.googleapis.com/2.41/chromedriver_linux64.zip
+    unzip chromedriver_linux64.zip
+    sudo mv chromedriver /usr/bin/chromedriver
+    sudo chown root:root /usr/bin/chromedriver
+    sudo chmod +x /usr/bin/chromedriver
+    wget https://selenium-release.storage.googleapis.com/3.13/selenium-server-standalone-3.13.0.jar
+    xvfb-run java -cp "./lib/*:./bin" -jar selenium-server-standalone.jar org.testng.TestNG testng.xml
   
 - task: PublishPipelineArtifact@1
   inputs:
