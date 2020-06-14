@@ -12,15 +12,21 @@ public class NewTest {
 
 	@Test
 	public void f() {
-			System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+		log.info("first line");
+			System.setProperty("webdriver.chrome.driver", ".//lib//chromedriver");
+		log.info("system property set");
 		ChromeOptions chromeOptions = new ChromeOptions();
 			chromeOptions.addArguments("--ChromelessOptions");
             chromeOptions.addArguments("--headless");
             chromeOptions.addArguments("--no-sandbox");
 			chromeOptions.addArguments("--disable-dev-shm-usage");
-			driver = new ChromeDriver(chromeOptions);
-			
+					chromeOptions.addArguments("--incognito");
+		chromeOptions.setExperimentalOption("useAutomationExtension",false);
+			log.info("options added");
+		driver = new ChromeDriver(chromeOptions);
+			log.info("before google url");
 		log.info(driver.get("https://www.google.com/"));
+		log.info("last line");
 		
 	}
 }
