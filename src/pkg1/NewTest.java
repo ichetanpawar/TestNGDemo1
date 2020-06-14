@@ -21,6 +21,7 @@ public class NewTest {
 			driver.get("https://www.google.co.in/");
 			log.info("Window title:"+driver.getTitle());
 			log.info("Current URL:"+driver.getCurrentUrl());
+			log.info(driver.getPageSource());
 	}
 }
 
