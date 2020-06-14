@@ -14,7 +14,7 @@ public class NewTest {
 
 	@Test
 	public void f() {
-			System.setProperty("webdriver.chrome.driver", ".\\usr\\bin\\chromedriver");
+			System.setProperty("webdriver.chrome.driver", ".//lib//chromedriver");
 
 			ChromeOptions chromeOptions = new ChromeOptions();
 			chromeOptions.addArguments("--ChromelessOptions");
