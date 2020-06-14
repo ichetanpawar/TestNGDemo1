@@ -10,7 +10,8 @@ steps:
    sudo apt-get install default-jdk
     sudo apt install google-chrome-stable
     sudo apt-get install testng
-    sudo apt-get -y install xvfb 
+    sudo apt-get -y install xvfb
+    xvfb-run java -cp "./lib/*:./bin" org.testng.TestNG testng.xml
     
 - task: PublishPipelineArtifact@1
   inputs:
