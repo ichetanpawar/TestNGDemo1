@@ -10,8 +10,11 @@ steps:
    sudo apt-get install default-jdk
     sudo apt install google-chrome-stable
     sudo apt-get install testng
-    sudo apt-get -y install xvfb
-    xvfb-run java -cp "./lib/*:./bin" org.testng.TestNG testng.xml
+    sudo apt-get install firefox xvfb
+    Xvfb :10 -ac &
+    export DISPLAY=:10
+    firefox
+    java -cp "./lib/*:./bin" org.testng.TestNG testng.xml
     
 - task: PublishPipelineArtifact@1
   inputs:
