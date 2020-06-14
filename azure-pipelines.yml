@@ -11,7 +11,7 @@ steps:
     sudo apt install google-chrome-stable
     sudo apt-get install testng
     sudo apt-get -y install xvfb
-    java -cp "./lib/*:./bin" org.testng.TestNG testng.xml
+    xvfb-run java -cp "./lib/*:./bin" org.testng.TestNG testng.xml
     
 - task: PublishPipelineArtifact@1
   inputs:
