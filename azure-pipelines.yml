@@ -18,4 +18,6 @@ steps:
     targetPath: '$(Build.SourcesDirectory)/results'
     artifact: 'Results'
     publishLocation: 'pipeline'
+  condition: succeededOrFailed()
+
   
