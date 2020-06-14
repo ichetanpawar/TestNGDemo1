@@ -7,14 +7,11 @@ pool:
 
 steps:
 - script: |
-    sudo apt-get install default-jdk
+   sudo apt-get install default-jdk
+    sudo apt install google-chrome-stable
     sudo apt-get install testng
-    sudo apt-get -y install dbus-x11 xfonts-base xfonts-100dpi xfonts-75dpi xfonts-cyrillic xfonts-scalable
-    sudo apt-get install -y libappindicator1 fonts-liberation
-    cd /temp
-    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-    sudo dpkg -i google-chrome*.deb
-    java -cp "./lib/*:./bin" org.testng.TestNG testng.xml
+    sudo apt-get -y install xvfb 
+    xvfb-run java -cp "./lib/*:./bin" org.testng.TestNG testng.xml
 
 - task: PublishPipelineArtifact@1
   inputs:
