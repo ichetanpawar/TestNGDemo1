@@ -2,32 +2,22 @@ trigger:
 - master
 
 pool:
-  name: linux-agents
-  #vmImage: 'ubuntu-latest'
+  #name: linux-agents
+  vmImage: 'ubuntu-latest'
 
 steps:
 - script: |
-   sudo apt-get install default-jdk
-    sudo apt install google-chrome-stable
-    sudo apt-get install testngsudo apt-get install fonts-liberation xdg-utils libxss1 libappindicator1 libindicator7
-    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-    sudo dpkg -i google-chrome*.deb
-    sudo apt-get update
-    wget https://chromedriver.storage.googleapis.com/2.22/chromedriver_linux64.zip
-    unzip chromedriver_linux64.zip
-    sudo cp ./chromedriver /usr/bin/
-    sudo chmod ugo+rx /usr/bin/chromedriver
-    sudo apt-get -y install libxpm4 libxrender1 libgtk2.0-0 libnss3 libgconf-2-4
-    sudo apt-get -y install xorg xvfb gtk2-engines-pixbuf
-    sudo apt-get -y install dbus-x11 xfonts-base xfonts-100dpi xfonts-75dpi xfonts-cyrillic xfonts-scalable
-    sudo apt-get -y install imagemagick x11-apps
-    java -cp "./lib/*:./bin" org.testng.TestNG testng.xml
-    
+   google-chrome --version
+   wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+   sudo dpkg -i google-chrome-stable_current_amd64.deb
+   chmod +x chromedriverforlinux
+   java -cp "./lib/*:./bin" org.testng.TestNG testng.xml
+
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Build.SourcesDirectory)/results'
-    artifact: 'Results'
-    publishLocation: 'pipeline'
+      targetPath: '$(Build.SourcesDirectory)/results'
+      artifact: 'Results'
+      publishLocation: 'pipeline'
   condition: succeededOrFailed()
 
-  
+
