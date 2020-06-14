@@ -19,9 +19,8 @@ public class NewTest {
             chromeOptions.addArguments("--no-sandbox");
 			chromeOptions.addArguments("--disable-dev-shm-usage");
 			driver = new ChromeDriver(chromeOptions);
-			log.info("Opening google.co.in");
-		log.info("Opening google.co.in3");
-		log.info("Opening google.co.in4"+driver.get("https://www.google.com/"));
+			
+		log.info(driver.get("https://www.google.com/"));
 		
 	}
 }
