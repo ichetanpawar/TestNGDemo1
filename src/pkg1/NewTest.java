@@ -13,10 +13,12 @@ public class NewTest {
 
 	@Test
 	public void f() {
-			System.setProperty("webdriver.chrome.driver", ".//lib//chromedriver");
+			//System.setProperty("webdriver.chrome.driver", ".//lib//chromedriver");
 
-			driver = new ChromeDriver();
+			//driver = new ChromeDriver();
 			log.info("Opening google.co.in");
+		log.info("Opening google.co.in3");
+		log.info("Opening google.co.in4");
 		
 	}
 }
