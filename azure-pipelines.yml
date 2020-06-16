@@ -8,8 +8,14 @@ pool:
 steps:
 - script: |
    google-chrome --version
-   wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-   sudo dpkg -i google-chrome-stable_current_amd64.deb
+   sudo apt install google-chrome-stable
+   sudo apt-get install testng
+   sudo apt install maven
+   sudo apt install oracle-java8-installer
+   JAVA_HOME=/usr/lib/jvm/java-8-oracle
+   java -cp "./lib/*:./bin"
+   sudo apt-get install xvfb
+   cd /home/vsts/work/1/s/src/
    chmod +x chromedriver
    java -cp "./lib/*:./bin" org.testng.TestNG testng.xml
 
