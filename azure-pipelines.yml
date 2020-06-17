@@ -31,7 +31,8 @@ steps:
     sudo chmod 0755 /usr/local/bin/selenium-server-standalone.jar
     cd /usr/local/bin/
     sudo apt-get install testng
-    java -cp "/lib/*:/bin/" -Dwebdriver.chrome.driver=//usr//local//bin//chromedriver -jar //usr//local//bin//selenium-server-standalone.jar org.testng.TestNG testng.xml
+    java -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver -jar /usr/local/bin/selenium-server-standalone.jar
+    chromedriver --url-base=http://192.168.43.22:4444/wd/hub
 
 - task: PublishPipelineArtifact@1
   inputs:
