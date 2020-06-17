@@ -17,13 +17,11 @@ steps:
     sudo chmod +x /usr/bin/chromedriver 
     sudo apt-get install xvfb
     cd /usr/bin/
-    wget https://selenium-release.storage.googleapis.com/3.13/selenium-server-standalone-3.13.0.jar
-    sudo chmod +x selenium-server-standalone-3.13.0.jar
-    xvfb-run java -cp "./lib/*:./bin" -jar /usr/bin/selenium-server-standalone.jar org.testng.TestNG testng.xml
+    xvfb-run java -cp "./lib/*:./bin" org.testng.TestNG testng.xml
 
 - task: PublishPipelineArtifact@1
   inputs:
-      targetPath: '$(Build.SourcesDirectory)/results'
+      targetPath: '$(Build.SourcesDirectory)'
       artifact: 'Results'
       publishLocation: 'pipeline'
   condition: succeededOrFailed()
