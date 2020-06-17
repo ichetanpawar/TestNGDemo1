@@ -17,7 +17,7 @@ steps:
     sudo chmod +x /usr/bin/chromedriver 
     sudo apt-get install xvfb
     sudo apt-get install -y testng
-    java -cp ./lib/*:./bin org.testng.TestNG testng.xml
+    xvfb-run java org.testng.TestNG testng.xml
 
 - task: PublishPipelineArtifact@1
   inputs:
