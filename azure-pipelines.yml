@@ -16,7 +16,7 @@ steps:
     unzip chromedriver_linux64.zip
     sudo chmod +x /usr/bin/chromedriver 
     sudo apt-get install xvfb
-    cd /usr/bin/
+    sudo apt-get install -y testng
     xvfb-run java -cp "./lib/*:./bin" org.testng.TestNG testng.xml
 
 - task: PublishPipelineArtifact@1
