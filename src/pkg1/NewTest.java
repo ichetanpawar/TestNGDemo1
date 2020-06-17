@@ -13,7 +13,7 @@ public class NewTest {
 	@Test
 	public void f() {
 		log.info("first line");
-			//System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+			//System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
 		log.info("system property set");
 		ChromeOptions chromeOptions = new ChromeOptions();
 			chromeOptions.addArguments("--ChromelessOptions");
