@@ -13,7 +13,7 @@ public class NewTest {
 	@Test
 	public void f() {
 		log.info("first line");
-			System.setProperty("webdriver.chrome.driver", ".//lib//chromedriver");
+			//System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
 		log.info("system property set");
 		ChromeOptions chromeOptions = new ChromeOptions();
 			chromeOptions.addArguments("--ChromelessOptions");
@@ -23,8 +23,10 @@ public class NewTest {
 					chromeOptions.addArguments("--incognito");
 		chromeOptions.setExperimentalOption("useAutomationExtension",false);
 			log.info("options added");
-		driver = new ChromeDriver(chromeOptions);
-			log.info("before google url");
+		//driver = new ChromeDriver(chromeOptions);
+		driver = WebDriver.Chrome(executable_path="/usr/bin/chromedriver",
+                          chrome_options=chromeOptions);
+		log.info("before google url");
 		log.info(driver.get("https://www.google.com/"));
 		log.info("last line");
 		
