@@ -24,10 +24,9 @@ public class NewTest {
 		chromeOptions.setExperimentalOption("useAutomationExtension",false);
 			log.info("options added");
 		//driver = new ChromeDriver(chromeOptions);
-		//driver = WebDriver.Chrome(executable_path="/usr/bin/chromedriver",
-                  //        chrome_options=chromeOptions);
+		driver = WebDriver.Chrome(executable_path="/usr/bin/chromedriver",chrome_options=chromeOptions);
 		
-		driver = new RemoteWebDriver(new URL("http://192.168.43.22:4444/wd/hub"),chrome_options=chromeOptions);
+		//driver = new RemoteWebDriver(new URL("http://192.168.43.22:4444/wd/hub"),chrome_options=chromeOptions);
 		
 		log.info("before google url");
 		log.info(driver.get("https://www.google.com/"));
