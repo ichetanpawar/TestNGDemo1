@@ -31,9 +31,8 @@ steps:
     sudo chmod 0755 /usr/local/bin/selenium-server-standalone.jar
     cd /usr/local/bin/
     sudo apt-get install testng
-    java -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver -jar /usr/local/bin/selenium-server-standalone.jar
-    java -cp "/lib/*:/bin/" org.testng.TestNG testng.xml
-      
+    java -cp "/lib/*:/bin/" -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver -jar /usr/local/bin/selenium-server-standalone.jar testng.xml
+
 - task: PublishPipelineArtifact@1
   inputs:
       targetPath: '$(Build.SourcesDirectory)'
