@@ -30,7 +30,7 @@ steps:
     sudo chown root:root /usr/local/bin/selenium-server-standalone.jar
     sudo chmod 0755 /usr/local/bin/selenium-server-standalone.jar
 
-    xvfb-run java -cp "./lib/*:./bin" -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver -jar /usr/local/bin/selenium-server-standalone.jar testng.xml
+    xvfb-run java -cp "./lib/*:./bin" -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver -jar /usr/local/bin/selenium-server-standalone.jar org.testng.TestNG testng.xml
     
 - task: PublishPipelineArtifact@1
   inputs:
