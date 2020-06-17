@@ -7,17 +7,18 @@ pool:
 
 steps:
 - script: |
-   google-chrome --version
-   sudo apt install google-chrome-stable
-   sudo apt-get install testng
-   sudo apt install maven
-   sudo apt install oracle-java8-installer
-   JAVA_HOME=/usr/lib/jvm/java-8-oracle
-   java -cp "./lib/*:./bin"
-   sudo apt-get install xvfb
-   cd /home/vsts/work/1/s/src/
-   chmod +x chromedriver
-   java -cp "./lib/*:./bin" org.testng.TestNG testng.xml
+    sudo apt-get install -y unzip openjdk-8-jre-headless xvfb libxi6 libgconf-2-4
+        
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    sudo dpkg -i google-chrome-stable_current_amd64.deb
+    cd /usr/bin/
+    wget https://chromedriver.storage.googleapis.com/2.35/chromedriver_linux64.zip
+    unzip chromedriver_linux64.zip
+    sudo chmod +x /usr/bin/chromedriver 
+    sudo apt-get install xvfb
+    cd /usr/bin/
+    wget https://selenium-release.storage.googleapis.com/3.13/selenium-server-standalone-3.13.0.jar
+    xvfb-run java -cp "./lib/*:./bin" -jar /usr/bin/selenium-server-standalone.jar org.testng.TestNG testng.xml
 
 - task: PublishPipelineArtifact@1
   inputs:
