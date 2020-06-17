@@ -31,7 +31,7 @@ steps:
     sudo chmod 0755 /usr/local/bin/selenium-server-standalone.jar
     cd /usr/local/bin/
     sudo apt-get install testng
-    java -cp "/lib/*:/bin/" org.testng.TestNG testng.xml
+    java -cp "/lib/*:/bin/" -jar /usr/local/bin/selenium-server-standalone.jar org.testng.TestNG testng.xml
     
 - task: PublishPipelineArtifact@1
   inputs:
