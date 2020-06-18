@@ -10,14 +10,10 @@ steps:
     sudo apt install default-jre
     sudo apt install google-chrome-stable
     sudo apt-get install testng
-    java -cp "./lib/*:./bin" org.testng.TestNG testng.xml 
-
-
+    java -cp "./lib/*:./bin" org.testng.TestNG testng.xml
+  
 - task: PublishPipelineArtifact@1
   inputs:
-      targetPath: '$(Build.SourcesDirectory)'
-      artifact: 'Results'
-      publishLocation: 'pipeline'
-  condition: succeededOrFailed()
-
-
+    targetPath: '$(Build.SourcesDirectory)/results'
+    artifact: 'Results'
+    publishLocation: 'pipeline'
