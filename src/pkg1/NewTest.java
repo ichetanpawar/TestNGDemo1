@@ -12,9 +12,9 @@ public class NewTest {
 
 	@Test
 	public void f() {
-		log.info("first line");
+		//log.info("first line");
 			//System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
-		log.info("system property set");
+		//log.info("system property set");
 // 		ChromeOptions chromeOptions = new ChromeOptions();
 // 			chromeOptions.addArguments("--ChromelessOptions");
 //             chromeOptions.addArguments("--headless");
@@ -28,9 +28,9 @@ public class NewTest {
 		
 		//driver = new RemoteWebDriver(new URL("http://192.168.43.22:4444/wd/hub"),chrome_options=chromeOptions);
 		
-		log.info("before google url");
+		//log.info("before google url");
 	//	log.info(driver.get("https://www.google.com/"));
-		log.info("last line");
-		
+		//log.info("last line");
+		System.out.print("Ok Test");
 	}
 }
